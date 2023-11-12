@@ -10,11 +10,23 @@ galleryItems.map((item) => {
     `<li class="gallery__item"><img class="gallery__image" data-big-img="${item.original}" src="${item.preview}" alt="${item.description}"></li>`
   );
 });
+
 galleryList.insertAdjacentHTML("afterbegin", key.join(""));
 
 function onClick(event) {
-  const instance = basicLightbox.create(`
-    <img src="${event.target.dataset.bigImg}" width="800" height="600">
-`);
-  instance.show();
+  if (event.target.classList.contains("gallery__image")) {
+    const instance = basicLightbox.create(`
+    <img src="${event.target.dataset.bigImg}" width="800" height="600">`);
+
+    instance.show();
+
+    window.addEventListener("keyup", closeModal);
+
+    function closeModal(event) {
+      if (event.code === "Escape") {
+        window.removeEventListener("keyup", closeModal);
+        instance.close();
+      }
+    }
+  }
 }
