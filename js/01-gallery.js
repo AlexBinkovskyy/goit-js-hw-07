@@ -25,7 +25,7 @@ function onClick(event) {
     modal.addEventListener("click", closeModal);
 
     function closeModal(event) {
-      if (event.code === "Escape" || event) {
+      if (event.code === "Escape" || event.currentTarget === modal) {
         window.removeEventListener("keydown", closeModal);
         modal.removeEventListener("click", closeModal);
         instance.close();
