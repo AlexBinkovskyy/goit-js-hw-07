@@ -21,10 +21,13 @@ function onClick(event) {
     instance.show();
 
     window.addEventListener("keydown", closeModal);
+    const modal = document.querySelector(".basicLightbox");
+    modal.addEventListener("click", closeModal);
 
     function closeModal(event) {
-      if (event.code === "Escape") {
+      if (event.code === "Escape" || event) {
         window.removeEventListener("keydown", closeModal);
+        modal.removeEventListener("click", closeModal);
         instance.close();
       }
     }
