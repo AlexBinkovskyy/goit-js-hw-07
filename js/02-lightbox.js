@@ -21,4 +21,7 @@ function onClick(event) {
   event.preventDefault();
 }
 
-const lightbox = new SimpleLightbox(".gallery a", {captionsData: 'alt', captionDelay: 250})
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
