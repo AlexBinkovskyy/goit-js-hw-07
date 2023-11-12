@@ -24,7 +24,7 @@ function onClick(event) {
 
     function closeModal(event) {
       if (event.code === "Escape") {
-        window.removeEventListener("keyup", closeModal);
+        window.removeEventListener("keydown", closeModal);
         instance.close();
       }
     }
