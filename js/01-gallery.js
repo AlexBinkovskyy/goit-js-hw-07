@@ -14,7 +14,7 @@ galleryItems.map((item) => {
 galleryList.insertAdjacentHTML("afterbegin", key.join(""));
 
 function onClick(event) {
-  if (event.target.classList.contains("gallery__image")) {
+  if (event.target !== event.currentTarget) {
     const instance = basicLightbox.create(`
     <img src="${event.target.dataset.bigImg}" width="800" height="600">`);
 
